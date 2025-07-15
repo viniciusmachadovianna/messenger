@@ -1,10 +1,17 @@
-document.getElementById('btnSend').addEventListener('click',function (){ sendMessage(this)
+document.getElementById('btnSend').addEventListener('click',function (){ sendMessage()
 })
 function sendMessage(){
-  const text = document.getElementById('msgInput').value,
+  const chat = document.getElementById('chat'),
+    input = document.getElementById('msgInput'),
     message = document.createElement('div'),
-    chat = document.getElementById('chat')
-  message.textContent=text
+    span = document.createElement('span'),
+    hour = document.createElement('sub'),
+    d= new Date()
+  hour.textContent = `${d.getHours()}:${d.getMinutes()}`
+  span.textContent=input.value
+  message.appendChild(span)
+  message.appendChild(hour)
   message.className='historyMessage msgSender'
   chat.appendChild(message)
+  input.value=''
 }
