@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messenger</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 </head>
 <body>
-  
+  <div id="login">
+    <label for="user">User:</label>
+    <input type="text" value="admin">
+    <label for="pass">Password:</label>
+    <input type="password" value="pass">
+  </div>
+  <section id="chat">
+    <div class="msgSender">enviando um alô</div>
+    <div class="msgRecipient">retornando um aoba</div>
+    <textarea name="message" id="msgInput"></textarea>
+    <button type="submit" id="btnSend">ENVIAR</button>
+  </section>
 </body>
 <script src="script.js"></script>
 </html>
