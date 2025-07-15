@@ -32,3 +32,14 @@ function clearInput(input){
   input.style.height = 'auto'
   input.focus()
 }
+fetch('db.json')
+  .then(res=>{
+    if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
+    return res.json();
+  })
+  .then(data=>{
+    data.users.forEach(user=>{
+      console.log(`User ${user.id}: ${user.nick}, criado em ${user.created_at}`);
+    })
+  })
+  .catch(err => console.error(err));

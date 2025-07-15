@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id":1,
+      "nick":"san",
+      "created_at":"2025-07-10T22:51:03.123Z"
+    },
+    {
+      "id":2,
+      "nick":"mcfly",
+      "created_at":"2025-07-14T20:32:37.123Z"
+    },
+    {
+      "id":3,
+      "nick":"big fer",
+      "created_at":"2025-07-15T19:02:23.123Z"
+    }
+  ],
+  "chats":[
+    {
+      "id":1,
+      "users":[1,2],
+      "messages":[
+        {"text":"aoba","time":"2025-07-14T19:02:23.123Z","from":1},
+        {"text":"bão?","time":"2025-07-15T19:02:23.123Z","from":2}
+      ]
+    }
+  ]
+}
