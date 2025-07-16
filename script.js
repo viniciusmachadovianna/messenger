@@ -42,22 +42,26 @@ function selectChat(chatId){
     .catch(err => console.error(err));
 
   }
-createMessage("teste de call",1)
-function createMessage(text, from, time=null){
+createMessage("teste de call com horario iso fixo 19:02",1,"2025-07-14T19:02:23.123Z") //com iso datetime para testar if+slice
+function createMessage(text, from, isotime=null){
   const chat = document.getElementById('chat'),
     message = document.createElement('div'),
     span = document.createElement('span'),
     hour = document.createElement('sub')
-  if(time === null){
+  if(isotime === null){
     const d = new Date(),
     iso = d.toISOString();
     console.log(iso);
     hour.textContent = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
   }
+  else{hour.textContent = getHourMinute(isotime)}
   span.textContent=text
   message.appendChild(span)
   message.appendChild(hour)
   if(from === 1) message.className='historyMessage msgSender'
   else{message.className='historyMessage msgRecipient'}
   chat.appendChild(message)
+}
+function getHourMinute(isotime){
+  return isotime.slice(11, 16)
 }
