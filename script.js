@@ -10,18 +10,7 @@ function toggleAttachmentMenu(){
 function sendMessage(){
   const input = document.getElementById('msgInput')
   if(isEmpty(input)) return
-  
-  const chat = document.getElementById('chat'),
-    message = document.createElement('div'),
-    span = document.createElement('span'),
-    hour = document.createElement('sub'),
-    d= new Date()
-  hour.textContent = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
-  span.textContent=input.value
-  message.appendChild(span)
-  message.appendChild(hour)
-  message.className='historyMessage msgSender'
-  chat.appendChild(message)
+  createMessage(input.value,1)
   clearInput(input)
 }
 function isEmpty(input){
@@ -35,9 +24,6 @@ function clearInput(input){
 const xat = 1
 selectChat(xat)
 function selectChat(chatId){
-  const d = new Date().toISOString();
-  console.log(d);
-  
   fetch('db.json')
     .then(res=>{
       if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
@@ -56,15 +42,22 @@ function selectChat(chatId){
     .catch(err => console.error(err));
 
   }
-
-
-
-// fetch('db.json')
-//   .then(res=>{
-//     if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
-//     return res.json();
-//   })
-//   .then(data=>{
-//     // data.users.forEach(user=>{
-//     //   console.log(`User ${user.id}: ${user.nick}, criado em ${user.created_at}`);
-//     // })
+createMessage("teste de call",1)
+function createMessage(text, from, time=null){
+  const chat = document.getElementById('chat'),
+    message = document.createElement('div'),
+    span = document.createElement('span'),
+    hour = document.createElement('sub')
+  if(time === null){
+    const d = new Date(),
+    iso = d.toISOString();
+    console.log(iso);
+    hour.textContent = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
+  }
+  span.textContent=text
+  message.appendChild(span)
+  message.appendChild(hour)
+  if(from === 1) message.className='historyMessage msgSender'
+  else{message.className='historyMessage msgRecipient'}
+  chat.appendChild(message)
+}
