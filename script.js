@@ -32,14 +32,39 @@ function clearInput(input){
   input.style.height = 'auto'
   input.focus()
 }
-fetch('db.json')
-  .then(res=>{
-    if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
-    return res.json();
-  })
-  .then(data=>{
-    data.users.forEach(user=>{
-      console.log(`User ${user.id}: ${user.nick}, criado em ${user.created_at}`);
+const xat = 1
+selectChat(xat)
+function selectChat(chatId){
+  const d = new Date().toISOString();
+  console.log(d);
+  
+  fetch('db.json')
+    .then(res=>{
+      if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
+      return res.json();
     })
-  })
-  .catch(err => console.error(err));
+    .then(data=>{
+      const chat=data.chats.find(c=>c.id===chatId)
+      if(!chat) return
+      data.chats.forEach(chat=>{
+        console.info(`Chat ${chat.id}: Membros ${chat.users}.`);
+        chat.messages.forEach(msg=>{
+          console.log(`"${msg.text}" ~ ${msg.from} [${msg.time}]`);
+        })
+      })
+    })
+    .catch(err => console.error(err));
+
+  }
+
+
+
+// fetch('db.json')
+//   .then(res=>{
+//     if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
+//     return res.json();
+//   })
+//   .then(data=>{
+//     // data.users.forEach(user=>{
+//     //   console.log(`User ${user.id}: ${user.nick}, criado em ${user.created_at}`);
+//     // })
