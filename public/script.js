@@ -1,30 +1,31 @@
 const btnSendMessage = document.getElementById('btnSendMessage'),
   btnAddAttachment = document.getElementById('btnAddAttachment')
 
-btnAddAttachment.addEventListener('click',()=>toggleAttachmentMenu())
-btnSendMessage.addEventListener('click',()=>sendMessage())
-
 function toggleAttachmentMenu(){
   console.log('menu');
 }
+
 function sendMessage(){
   const input = document.getElementById('msgInput')
   if(isEmpty(input)) return
   createMessage(input.value,1)
   clearInput(input)
 }
+
 function isEmpty(input){
   return !input.value.trim();
 }
+
 function clearInput(input){
   input.value = ''
   input.style.height = 'auto'
   input.focus()
 }
+
 const xat = 1
 selectChat(xat)
 function selectChat(chatId){
-  fetch('db.json')
+  fetch('/api/chats')
     .then(res=>{
       if(!res.ok) throw new Error('Erro no carregamento do banco JSON');
       return res.json();
@@ -33,16 +34,14 @@ function selectChat(chatId){
       const chat=data.chats.find(c=>c.id===chatId)
       if(!chat) return
       data.chats.forEach(chat=>{
-        console.info(`Chat ${chat.id}: Membros ${chat.users}.`);
         chat.messages.forEach(msg=>{
-          console.log(`"${msg.text}" ~ ${msg.from} [${msg.time}]`);
+          createMessage(msg.text,msg.from,msg.time)
         })
       })
     })
     .catch(err => console.error(err));
+}
 
-  }
-createMessage("teste de call com horario iso fixo 19:02",1,"2025-07-14T19:02:23.123Z") //com iso datetime para testar if+slice
 function createMessage(text, from, isotime=null){
   const chat = document.getElementById('chat'),
     message = document.createElement('div'),
@@ -51,8 +50,8 @@ function createMessage(text, from, isotime=null){
   if(isotime === null){
     const d = new Date(),
     iso = d.toISOString();
-    console.log(iso);
     hour.textContent = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
+    createMessageJSON(text,iso)
   }
   else{hour.textContent = getHourMinute(isotime)}
   span.textContent=text
@@ -62,6 +61,27 @@ function createMessage(text, from, isotime=null){
   else{message.className='historyMessage msgRecipient'}
   chat.appendChild(message)
 }
+
 function getHourMinute(isotime){
   return isotime.slice(11, 16)
 }
+
+function createMessageJSON(text,time){
+  fetch('/message', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chatId: 1,
+      text: text,
+      from: 1,
+      time: time
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+  });
+}
+
+btnAddAttachment.addEventListener('click',()=>toggleAttachmentMenu())
+btnSendMessage.addEventListener('click',()=>sendMessage())
