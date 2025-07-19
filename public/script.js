@@ -1,18 +1,17 @@
 const btnSendMessage = document.getElementById('btnSendMessage'),
-  btnAddAttachment = document.getElementById('btnAddAttachment')
-
+  btnAddAttachment = document.getElementById('btnAddAttachment'),
+  msgInput = document.getElementById('msgInput')
 function toggleAttachmentMenu(){
   console.log('menu');
 }
 
 function sendMessage(){
-  const input = document.getElementById('msgInput')
-  if(isEmpty(input)) return
-  createMessage(input.value,1)
-  clearInput(input)
+  if(isEmpty()) return
+  createMessage(msgInput.value,1)
+  clearInput(msgInput)
 }
 
-function isEmpty(input){
+function isEmpty(input=msgInput){
   return !input.value.trim();
 }
 
@@ -54,7 +53,7 @@ function createMessage(text, from, isotime=null){
     createMessageJSON(text,iso)
   }
   else{hour.textContent = getHourMinute(isotime)}
-  span.textContent=text
+  span.innerHTML=text
   message.appendChild(span)
   message.appendChild(hour)
   if(from === 1) message.className='historyMessage msgSender'
@@ -85,3 +84,10 @@ function createMessageJSON(text,time){
 
 btnAddAttachment.addEventListener('click',()=>toggleAttachmentMenu())
 btnSendMessage.addEventListener('click',()=>sendMessage())
+
+msgInput.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter' && !isEmpty()) {
+    e.preventDefault()
+    sendMessage()
+  }
+});
