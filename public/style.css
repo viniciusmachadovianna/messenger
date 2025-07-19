@@ -7,7 +7,6 @@
 :root{
   --black: #222;
   --white: #EEE;
-  --gray: #888;
 }
 body{
   font-family: 'Poppins', sans-serif;
@@ -30,13 +29,16 @@ body{
   overflow-y: auto;
 }
 .historyMessage{
+  position: relative;
   width: fit-content;
   margin: 7px;
   padding: 7px;
 }
 .historyMessage>sub{
+  position: absolute;
   font-size: xx-small;
-  color: var(--gray);
+  bottom: 3px;
+  right: 7px;
 }
 .msgSender{
   align-self: flex-end;
