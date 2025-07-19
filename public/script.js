@@ -47,10 +47,9 @@ function createMessage(text, from, isotime=null){
     span = document.createElement('span'),
     hour = document.createElement('sub')
   if(isotime === null){
-    const d = new Date(),
-    iso = d.toISOString();
+    const d = new Date()
     hour.textContent = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`
-    createMessageJSON(text,iso)
+    createMessageJSON(text)
   }
   else{hour.textContent = getHourMinute(isotime)}
   span.innerHTML=text

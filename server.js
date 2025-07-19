@@ -19,7 +19,7 @@ app.get('/api/chats', (req, res) => {
 });
 
 app.post('/message', (req, res) => {
-  const { chatId, text, from , time} = req.body;
+  const { chatId, text, from } = req.body;
 
   try{
     const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
@@ -30,7 +30,7 @@ app.post('/message', (req, res) => {
     const msg = {
       text,
       from,
-      time
+      time: new Date().toISOString
     };
 
     chat.messages.push(msg);
