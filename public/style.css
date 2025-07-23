@@ -7,7 +7,8 @@
 :root{
   --black: #222;
   --white: #EEE;
-  --gray: #666;
+  --darkgray: #444;
+  --lightgray: #777;
 }
 body{
   font-family: 'Poppins', sans-serif;
@@ -22,7 +23,40 @@ body{
   align-items: center;
 }
 #chatHeader{
-  background-color: var(--gray);
+  background-color: var(--darkgray);
+  display: flex;
+  align-items: center;
+}
+#recipientPicture{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 7px;
+  padding: 3px;
+  border: 2px solid transparent;
+}
+#recipientPicture.online{
+  border: 2px solid rgb(125, 255, 125);
+}
+#recipientPicture.busy{
+  border: 2px solid rgb(255, 125, 125);
+}
+#recipientPicture.away{
+  border: 2px solid rgb(255, 190, 125);
+}
+#recipientPicture.offline{
+  border: 2px solid rgba(222, 222, 222, 0.5);
+}
+#chatName{
+  font-size: 21px;
+}
+#recipientId::before{
+  content: "#";
+}
+#recipientId{
+  font-size: 14px;
+  margin-left: 3px;
+  color: var(--lightgray);
 }
 #chat{
   background-color: #333;
