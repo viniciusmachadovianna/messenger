@@ -90,3 +90,9 @@ msgInput.addEventListener('keydown', function (e) {
     sendMessage()
   }
 });
+
+//TESTING:
+const colorPicker = document.getElementById('color');
+colorPicker.addEventListener('input', e => {
+  document.body.style.backgroundColor = e.target.value;
+});

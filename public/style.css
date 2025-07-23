@@ -7,8 +7,11 @@
 :root{
   --black: #222;
   --white: #EEE;
+  --darkergray: #333;
   --darkgray: #444;
-  --lightgray: #777;
+  --gray: #555;
+  --lightgray: #666;
+  --lightergray: #777;
 }
 body{
   font-family: 'Poppins', sans-serif;
@@ -126,8 +129,9 @@ button{
   resize: none;
   margin: 7px auto;
   height: 28px;
-  background-color: gray;
+  background-color: var(--darkergray);
   flex: 1;
+  padding-left: 10px;
 }
 .chatsList{
   background-color: lightblue;
