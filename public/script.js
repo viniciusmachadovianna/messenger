@@ -1,6 +1,20 @@
 const btnSendMessage = document.getElementById('btnSendMessage'),
   btnAddAttachment = document.getElementById('btnAddAttachment'),
   msgInput = document.getElementById('msgInput')
+
+const btnLogin = document.getElementById("loginBtn");
+function login(e){
+  const loginForm = document.getElementById('loginForm');
+  e.preventDefault();
+  const user = document.getElementById('inputUser').value;
+  const pass = document.getElementById('inputPass').value;
+  if(!isCredentialsValid(user,pass)){loginForm.className='invalidCredentials'}
+}
+function isCredentialsValid(user,pass){
+  //send to BE
+  return user==='user'&&pass==='pass'
+}
+
 function toggleAttachmentMenu(){
   console.log('menu');
 }
@@ -81,18 +95,18 @@ function createMessageJSON(text,time){
   });
 }
 
+btnLogin.addEventListener('click',login)
 btnAddAttachment.addEventListener('click',()=>toggleAttachmentMenu())
 btnSendMessage.addEventListener('click',()=>sendMessage())
-
 msgInput.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' && !isEmpty()) {
+    //if() considera shift+enter para nova linha?
     e.preventDefault()
     sendMessage()
   }
 });
 
 //TESTING:
-
 const chatsList = document.querySelector('.chatsList');
 const chatName = document.getElementById('chatName');
 chatsList.querySelectorAll('button').forEach(button=>{
@@ -105,3 +119,18 @@ const colorPicker = document.getElementById('bgcolor');
 colorPicker.addEventListener('input', e => {
   document.body.style.backgroundColor = e.target.value;
 });
+
+const quickActionList = document.querySelectorAll('.messageQuickAction');
+quickActionList.forEach(quickActionBtn=>{
+  quickActionBtn.addEventListener('click',()=>{
+    console.log('quick action btn clicked');
+    
+  })
+})
+function copyMessage(){
+    // navigator.clipboard.writeText("teste copia")
+    // console.log('copiado!');
+}
+function removeMessage(msg){
+  // quickActionBtn.parentElement.remove();
+}

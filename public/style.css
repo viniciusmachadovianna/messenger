@@ -12,18 +12,34 @@
   --gray: #555;
   --lightgray: #666;
   --lightergray: #777;
+
+  --lightblue: #AFDBF5;
+  --recipient-message:var(--lightblue);
+  --quick-action: var(--white);
+  --recipient-quick-action: var(--white);
+
+  --online:#7dff7d;
+  --away: #ffbe7d;
+  --busy: #ff7d7d;
+  --offline: #dedede;
 }
 body{
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
   width: 100%;
   height: 100dvh;
   position: relative;
   display: flex;
   flex-flow: column;
   align-items: center;
+}
+#loginForm span{
+  color: red;
+}
+#loginForm.invalidCredentials input:not([type="reset"]){
+  color: red;
 }
 #chatHeader{
   background-color: var(--darkgray);
@@ -38,18 +54,10 @@ body{
   padding: 3px;
   border: 2px solid transparent;
 }
-#recipientPicture.online{
-  border: 2px solid rgb(125, 255, 125);
-}
-#recipientPicture.busy{
-  border: 2px solid rgb(255, 125, 125);
-}
-#recipientPicture.away{
-  border: 2px solid rgb(255, 190, 125);
-}
-#recipientPicture.offline{
-  border: 2px solid rgba(222, 222, 222, 0.5);
-}
+#recipientPicture.online{border: 2px solid var(--online)}
+#recipientPicture.busy{border: 2px solid var(--busy)}
+#recipientPicture.away{border: 2px solid var(--away)}
+#recipientPicture.offline{border: 2px solid var(--offline)}
 #chatName{
   font-size: 21px;
 }
@@ -76,11 +84,25 @@ body{
   margin: 7px;
   padding: 7px;
   padding-bottom: 14px;
-  border-left: 5px solid transparent;
+  overflow-x: hidden;
 }
-.historyMessage:hover{
-  border-left: 5px solid blue;
-
+.messageQuickAction{
+  position: absolute;
+  user-select: none;
+  left: -7px;
+  top: 0;
+  height: 100%;
+  background-color: var(--quick-action);
+  cursor: pointer;
+  transition: .3s;
+  width: 7px;
+}
+.historyMessage:hover>.messageQuickAction{
+  left: 0px;
+}
+.messageText{
+  margin: 0 14px;
+  display: inline-block;
 }
 .historyMessage>sub{
   position: absolute;
@@ -91,14 +113,17 @@ body{
 .msgSender{
   box-sizing: content-box;
   align-self: flex-end;
-  margin-left: 20px;
+  margin-left: 42px;
   background-color: #444;
 }
 .msgRecipient{
   align-self: flex-start;
-  margin-right: 20px;
-  background-color: rgb(134, 208, 233);
+  margin-right: 42px;
+  background-color: var(--recipient-message);
   color: var(--black);
+}
+.msgRecipient .messageQuickAction{
+  background-color: var(--recipient-quick-action);
 }
 button{
   cursor: pointer;

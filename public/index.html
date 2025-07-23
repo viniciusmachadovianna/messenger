@@ -10,12 +10,15 @@
 <body>
   <label for="bgcolor">cor de fundo :</label>
   <input type="color" id="bgcolor">
-  <div id="login">
+  <form id="loginForm">
     <label for="user">User:</label>
-    <input type="text" value="1">
+    <input type="text" value="user" id="inputUser">
     <label for="pass">Password:</label>
-    <input type="password" value="pass">
-  </div>
+    <input type="password" value="pass" id="inputPass">
+    <button id="loginBtn">ENTRAR</button>
+    <input type="reset" value="Limpar">
+    <!-- <span>Usuário e/ou senha incorretos!</span> -->
+  </form>
   <section class="chatsList">
     <ul>
       <li>
@@ -37,8 +40,18 @@
       <span id="chatName">Jao</span>
       <span id="recipientId">2</span>
     </div>
-  </section>
-  <section id="chat">
+    <section id="chatHistory">
+      <div class="historyMessage msgSender">
+        <span class="messageQuickAction"></span>
+        <span class="messageText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Porro explicabo fuga voluptate quos rerum culpa amet nobis eos</span>
+        <sub class="messageTime">12:34</sub>
+      </div>
+      <div class="historyMessage msgRecipient">
+        <span class="messageQuickAction"></span>
+        <span class="messageText"> natus, non adipisci aspernatur tempore temporibus, molestiae nisi consequatur pariatur ullam id!</span>
+        <sub class="messageTime">23:45</sub>
+      </div>
+    </section>
   </section>
   <div id="chatInput">
     <button id="btnAddAttachment">
