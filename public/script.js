@@ -92,7 +92,16 @@ msgInput.addEventListener('keydown', function (e) {
 });
 
 //TESTING:
-const colorPicker = document.getElementById('color');
+
+const chatsList = document.querySelector('.chatsList');
+const chatName = document.getElementById('chatName');
+chatsList.querySelectorAll('button').forEach(button=>{
+  button.addEventListener('click',()=>{
+    chatName.textContent = button.querySelector('span').textContent;
+  })
+})
+
+const colorPicker = document.getElementById('bgcolor');
 colorPicker.addEventListener('input', e => {
   document.body.style.backgroundColor = e.target.value;
 });

@@ -135,6 +135,9 @@ button{
 }
 .chatsList{
   background-color: lightblue;
-  /* min-height: 20px; */
   min-width: 100px;
+}
+.chatsList>ul{
+  all: unset;
+  list-style: none;
 }
