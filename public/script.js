@@ -2,6 +2,12 @@ const btnSendMessage = document.getElementById('btnSendMessage'),
   btnAddAttachment = document.getElementById('btnAddAttachment'),
   msgInput = document.getElementById('msgInput')
 
+const btnTheme = document.getElementById("btnTheme");
+
+function toggleTheme() {
+  const doc = document.documentElement;
+  doc.getAttribute('data-theme')==='dark' ? doc.setAttribute('data-theme','light') : doc.setAttribute('data-theme','dark')
+}
 const btnLogin = document.getElementById("loginBtn");
 function login(e){
   const loginForm = document.getElementById('loginForm');
@@ -94,7 +100,7 @@ function createMessageJSON(text,time){
     console.log(data);
   });
 }
-
+btnTheme.addEventListener('click',toggleTheme)
 btnLogin.addEventListener('click',login)
 btnAddAttachment.addEventListener('click',()=>toggleAttachmentMenu())
 btnSendMessage.addEventListener('click',()=>sendMessage())
@@ -128,9 +134,9 @@ quickActionList.forEach(quickActionBtn=>{
   })
 })
 function copyMessage(){
-    // navigator.clipboard.writeText("teste copia")
-    // console.log('copiado!');
+    navigator.clipboard.writeText("teste copia")
+    console.log('copiado!');
 }
-function removeMessage(msg){
-  // quickActionBtn.parentElement.remove();
+function removeMessage(e){
+  e.parentElement.remove();
 }

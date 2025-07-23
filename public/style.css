@@ -23,11 +23,19 @@
   --busy: #ff7d7d;
   --offline: #dedede;
 }
+[data-theme="light"]{
+  --bg: var(--white);
+  --text:var(--black);
+}
+[data-theme="dark"]{
+  --bg: var(--black);
+  --text:var(--white);
+}
 body{
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--bg);
+  color: var(--text);
   width: 100%;
   height: 100dvh;
   position: relative;
