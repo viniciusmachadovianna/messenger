@@ -14,9 +14,25 @@
     <label for="pass">Password:</label>
     <input type="password" value="pass">
   </div>
-  <section id="chatHeader">
-    <span id="chatName"></span>
-    <span id="chatId"></span>
+  <section class="chatsList">
+    <ul>
+      <li>
+        <button>
+          <span>1 jao</span>
+        </button>
+      </li>
+      <li>
+        <button>
+          <span>2 fer</span>
+        </button>
+      </li>
+    </ul>
+  </section>
+  <section id="chat">
+    <div id="chatHeader">
+      <span id="chatName">jao</span>
+      <span id="chatId">1</span>
+    </div>
   </section>
   <section id="chat">
   </section>
@@ -24,7 +40,7 @@
     <button id="btnAddAttachment">
       <img src="assets/icons/plus.svg" alt="Add attachment button">
     </button>
-    <textarea name="message" id="msgInput"></textarea>
+    <textarea name="message" id="msgInput" placeholder="Digite uma mensagem..."></textarea>
     <button type="submit" id="btnSendMessage">
       <img src="assets/icons/send.svg" alt="Send message button">
     </button>
