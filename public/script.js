@@ -1,14 +1,13 @@
 const btnSendMessage = document.getElementById('btnSendMessage'),
   btnAddAttachment = document.getElementById('btnAddAttachment'),
-  msgInput = document.getElementById('msgInput')
-
-const btnTheme = document.getElementById("btnTheme");
+  msgInput = document.getElementById('msgInput'),
+  btnTheme = document.getElementById("btnTheme"),
+  btnLogin = document.getElementById("loginBtn");
 
 function toggleTheme() {
   const doc = document.documentElement;
   doc.getAttribute('data-theme')==='dark' ? doc.setAttribute('data-theme','light') : doc.setAttribute('data-theme','dark')
 }
-const btnLogin = document.getElementById("loginBtn");
 function login(e){
   const loginForm = document.getElementById('loginForm');
   e.preventDefault();

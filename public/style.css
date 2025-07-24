@@ -11,7 +11,7 @@
   --darkgray: #444;
   --gray: #555;
   --lightgray: #666;
-  --lightergray: #777;
+  --lightergray: #ba8c8c;
 
   --lightblue: #AFDBF5;
   --recipient-message:var(--lightblue);
@@ -89,7 +89,7 @@ body{
 .historyMessage{
   position: relative;
   width: fit-content;
-  margin: 7px;
+  margin: 28px 7px;
   padding: 7px;
   padding-bottom: 14px;
   overflow-x: hidden;
