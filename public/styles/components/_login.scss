@@ -1,0 +1,9 @@
+#loginForm {
+  display: none;
+}
+#loginForm span {
+  color: red;
+}
+#loginForm.invalidCredentials input:not([type="reset"]) {
+  color: red;
+}

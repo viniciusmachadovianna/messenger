@@ -1,0 +1,10 @@
+[data-theme="light"] {
+  --bg: var(--white);
+  --text: var(--black);
+  --chat-checkpoint: var(--white);
+}
+[data-theme="dark"] {
+  --bg: var(--black);
+  --text: var(--white);
+  --chat-checkpoint: var(--black);
+}

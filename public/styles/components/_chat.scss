@@ -1,0 +1,63 @@
+#chatHistory {
+  flex: 1;
+  min-width: 500px;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin: 7px;
+  overflow: scroll;
+}
+.historyMessage {
+  position: relative;
+  width: fit-content;
+  margin: 28px 7px;
+  padding: 7px 7px 14px;
+  overflow-x: hidden;
+  height: fit-content;
+}
+.messageQuickAction {
+  position: absolute;
+  user-select: none;
+  left: -7px;
+  top: 0;
+  height: 100%;
+  background-color: var(--quick-action);
+  cursor: pointer;
+  transition: .3s;
+  width: 7px;
+}
+.historyMessage:hover > .messageQuickAction {
+  left: 0px;
+}
+.messageText {
+  margin: 0 14px;
+  display: inline-block;
+}
+.historyMessage > sub {
+  position: absolute;
+  font-size: xx-small;
+  bottom: 3px;
+  right: 7px;
+}
+.msgSender {
+  box-sizing: content-box;
+  align-self: flex-end;
+  margin-left: 42px;
+  background-color: #444;
+}
+.msgRecipient {
+  align-self: flex-start;
+  margin-right: 42px;
+  background-color: var(--recipient-message);
+  color: var(--black);
+}
+.msgRecipient .messageQuickAction {
+  background-color: var(--recipient-quick-action);
+}
+.dateCheckpoint {
+  align-self: center;
+  margin: 14px;
+  font-size: x-small;
+  background-color: var(--chat-checkpoint);
+  padding: 3px 7px;
+}

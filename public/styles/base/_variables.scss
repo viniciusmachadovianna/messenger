@@ -1,0 +1,19 @@
+:root {
+  --black: #222;
+  --white: #EEE;
+  --darkergray: #333;
+  --darkgray: #444;
+  --gray: #555;
+  --lightgray: #666;
+  --lightergray: #777;
+
+  --lightblue: #AFDBF5;
+  --recipient-message: var(--lightblue);
+  --quick-action: var(--white);
+  --recipient-quick-action: var(--white);
+
+  --online: #7dff7d;
+  --away: #ffbe7d;
+  --busy: #ff7d7d;
+  --offline: #dedede;
+}

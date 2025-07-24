@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messenger</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/main.css">
   <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 </head>
 <body>
-  <button id="btnTheme">theme switch</button>
-  <label for="bgcolor">cor de fundo :</label>
-  <input type="color" id="bgcolor">
+  <aside id="settings">
+    <button id="btnTheme">theme switch</button>
+    <label for="bgcolor">cor de fundo :</label>
+    <input type="color" id="bgcolor">
+  </aside>
   <form id="loginForm">
     <label for="user">User:</label>
     <input type="text" value="user" id="inputUser">
     <label for="pass">Password:</label>
     <input type="password" value="pass" id="inputPass">
+    <span>Usuário e/ou senha incorretos!</span>
     <button id="loginBtn">ENTRAR</button>
     <input type="reset" value="Limpar">
-    <span>Usuário e/ou senha incorretos!</span>
   </form>
   <section class="chatsList">
     <ul>
@@ -34,48 +36,47 @@
       </li>
     </ul>
   </section>
-  <section id="chat">
-    <div id="chatHeader">
-      <img src="assets/icons/user.svg" alt="Recipient profile" id="recipientPicture"
-      class="online">
-      <span id="chatName">Jao</span>
-      <span id="recipientId">2</span>
+  <section id="chatHeader">
+    <img src="assets/icons/user.svg" alt="Neutral face inside a circle, representing the chat recipient in the chat header area. The icon appears in a messaging interface with a dark theme, conveying a calm and neutral emotional tone. No text is present." id="recipientPicture"
+    class="online">
+    <span id="chatName">Jao</span>
+    <span id="recipientId">2</span>
+  </section>
+  <section id="chatHistory">
+    <div class="historyMessage msgSender">
+      <span class="messageQuickAction"></span>
+      <span class="messageText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Porro explicabo fuga voluptate quos rerum culpa amet nobis eos</span>
+      <sub class="messageTime">12:34</sub>
+      <div class="extraActions">
+        <button id="infoMessage">
+          <img src="" alt="info">
+        </button>
+        <button id="copyMessage">
+          <img src="" alt="reply">
+        </button>
+        <button id="replyMessage">
+          <img src="" alt="copy">
+        </button>
+        <button id="reactMessage">
+          <img src="" alt="react">
+        </button>
+        <button id="forwardMessage">
+          <img src="" alt="forward">
+        </button>
+        <button id="pinMessage">
+          <img src="" alt="pin">
+        </button>
+        <button id="starMessage">
+          <img src="" alt="star">
+        </button>
+      </div>
     </div>
-    <section id="chatHistory">
-      <div class="historyMessage msgSender">
-        <span class="messageQuickAction"></span>
-        <span class="messageText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Porro explicabo fuga voluptate quos rerum culpa amet nobis eos</span>
-        <sub class="messageTime">12:34</sub>
-        <div class="extraActions">
-          <button id="infoMessage">
-            <img src="" alt="info">
-          </button>
-          <button id="copyMessage">
-            <img src="" alt="reply">
-          </button>
-          <button id="replyMessage">
-            <img src="" alt="copy">
-          </button>
-          <button id="reactMessage">
-            <img src="" alt="react">
-          </button>
-          <button id="forwardMessage">
-            <img src="" alt="forward">
-          </button>
-          <button id="pinMessage">
-            <img src="" alt="pin">
-          </button>
-          <button id="starMessage">
-            <img src="" alt="star">
-          </button>
-        </div>
-      </div>
-      <div class="historyMessage msgRecipient">
-        <span class="messageQuickAction"></span>
-        <span class="messageText"> natus, non adipisci aspernatur tempore temporibus, molestiae nisi consequatur pariatur ullam id!</span>
-        <sub class="messageTime">23:45</sub>
-      </div>
-    </section>
+    <div class="dateCheckpoint">24/07/2025</div>
+    <div class="historyMessage msgRecipient">
+      <span class="messageQuickAction"></span>
+      <span class="messageText"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim inventore qui, exercitationem dolore praesentium nesciunt repellendus perspiciatis Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim inventore qui, exercitationem dolore praesentium nesciunt repellendus perspiciatis Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim inventore qui, exercitationem dolore praesentium nesciunt repellendus perspiciatis Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim inventore qui, exercitationem dolore praesentium nesciunt repellendus perspiciatis Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim inventore qui, exercitationem dolore praesentium nesciunt repellendus perspiciatis Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim inventore qui, exercitationem dolore praesentium nesciunt repellendus perspiciatis </span>
+      <sub class="messageTime">23:45</sub>
+    </div>
   </section>
   <div id="chatInput">
     <button id="btnAddAttachment">

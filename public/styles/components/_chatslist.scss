@@ -1,0 +1,12 @@
+
+.chatsList{
+  display: none; /* TODO REMOVER */
+  background-color: lightblue;
+  min-width: 100px;
+  position: absolute;
+  left: 0;
+}
+.chatsList>ul{
+  all: unset;
+  list-style: none;
+}

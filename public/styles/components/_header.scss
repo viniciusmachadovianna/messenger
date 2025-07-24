@@ -1,0 +1,30 @@
+#chatHeader{
+  background-color: var(--darkgray);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+#recipientPicture{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 7px;
+  padding: 3px;
+  border: 2px solid transparent;
+}
+#recipientPicture.online{border: 2px solid var(--online)}
+#recipientPicture.busy{border: 2px solid var(--busy)}
+#recipientPicture.away{border: 2px solid var(--away)}
+#recipientPicture.offline{border: 2px solid var(--offline)}
+#chatName{
+  font-size: 21px;
+}
+#recipientId::before{
+  content: "#";
+}
+#recipientId{
+  font-size: 14px;
+  margin-left: 3px;
+  color: var(--lightgray);
+}
