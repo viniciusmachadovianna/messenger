@@ -61,7 +61,7 @@ function selectChat(chatId){
 }
 
 function createMessage(text, from, isotime=null){
-  const chat = document.getElementById('chat'),
+  const chat = document.getElementById('chatHistory'),
     message = document.createElement('div'),
     span = document.createElement('span'),
     hour = document.createElement('sub')

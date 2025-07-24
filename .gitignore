@@ -1,5 +1,10 @@
 node_modules/
 .vscode/
+.env.development
+.env.production
+credentials.json
+
+public/styles/style.css
 
 # data.json -> seed = dados iniciais de teste (ignorar quando banco real, porém nesse ponto já será um DB mesmo e não JSON)
 

@@ -20,6 +20,13 @@
   --away: #ffbe7d;
   --busy: #ff7d7d;
   --offline: #dedede;
+  --button: #2e94bc;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--button);
+  border: none;
 }
 
 #chatHistory {
@@ -29,7 +36,6 @@
   flex-flow: column;
   width: 100%;
   margin: 7px;
-  overflow: scroll;
 }
 
 .historyMessage {
@@ -222,12 +228,6 @@ body {
   position: relative;
   display: flex;
   flex-flow: column;
-}
-
-button {
-  cursor: pointer;
-  background-color: #555;
-  border: none;
 }
 
 [data-theme=light] {

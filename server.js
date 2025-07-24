@@ -1,7 +1,11 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+});
+
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const PORT = 3000;
+const PORT = 5501;
 const DATA_PATH = './data.json';
 
 app.use(express.json());
