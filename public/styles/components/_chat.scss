@@ -5,15 +5,16 @@
   flex-flow: column;
   width: 100%;
   margin: 7px;
-  // overflow: scroll;
+  padding: 7px;
+  overflow-y: auto;
 }
 .historyMessage {
   position: relative;
   width: fit-content;
   margin: 28px 7px;
-  padding: 7px 7px 14px;
-  overflow-x: hidden;
-  height: fit-content;
+  padding-inline: 7px;
+  padding-block: 14px;
+  clip-path: inset(0);
 }
 .messageQuickAction {
   position: absolute;
@@ -30,6 +31,7 @@
   left: 0px;
 }
 .messageText {
+  background-color: gainsboro;
   margin: 0 14px;
   display: inline-block;
 }

@@ -36,15 +36,17 @@ button {
   flex-flow: column;
   width: 100%;
   margin: 7px;
+  padding: 7px;
+  overflow-y: auto;
 }
 
 .historyMessage {
   position: relative;
   width: fit-content;
   margin: 28px 7px;
-  padding: 7px 7px 14px;
-  overflow-x: hidden;
-  height: fit-content;
+  padding-inline: 7px;
+  padding-block: 14px;
+  clip-path: inset(0);
 }
 
 .messageQuickAction {
@@ -64,6 +66,7 @@ button {
 }
 
 .messageText {
+  background-color: gainsboro;
   margin: 0 14px;
   display: inline-block;
 }
@@ -223,11 +226,13 @@ body {
   background-color: var(--bg);
   color: var(--text);
   width: 100%;
+  max-height: 100dvh;
   height: 100dvh;
   overflow: auto;
   position: relative;
   display: flex;
   flex-flow: column;
+  justify-content: space-between;
 }
 
 [data-theme=light] {
