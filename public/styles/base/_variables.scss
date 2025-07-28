@@ -8,7 +8,10 @@
   --lightergray: #777;
 
   --lightblue: #AFDBF5;
-  --recipient-message: var(--lightblue);
+  --bg-msg-recipient: var(--gray);
+  --bg-msg-sender: var(--lightblue);
+  --color-msg-recipient: var(--white);
+  --color-msg-sender: var(--black);
   --quick-action: var(--white);
   --recipient-quick-action: var(--white);
 

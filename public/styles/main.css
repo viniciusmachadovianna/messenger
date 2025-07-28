@@ -13,7 +13,10 @@
   --lightgray: #666;
   --lightergray: #777;
   --lightblue: #AFDBF5;
-  --recipient-message: var(--lightblue);
+  --bg-msg-recipient: var(--gray);
+  --bg-msg-sender: var(--lightblue);
+  --color-msg-recipient: var(--white);
+  --color-msg-sender: var(--black);
   --quick-action: var(--white);
   --recipient-quick-action: var(--white);
   --online: #7dff7d;
@@ -66,8 +69,7 @@ button {
 }
 
 .messageText {
-  background-color: gainsboro;
-  margin: 0 14px;
+  margin-inline: 14px;
   display: inline-block;
 }
 
@@ -82,14 +84,15 @@ button {
   box-sizing: content-box;
   align-self: flex-end;
   margin-left: 42px;
-  background-color: #444;
+  background-color: var(--bg-msg-sender);
+  color: var(--color-msg-sender);
 }
 
 .msgRecipient {
   align-self: flex-start;
   margin-right: 42px;
-  background-color: var(--recipient-message);
-  color: var(--black);
+  background-color: var(--bg-msg-recipient);
+  color: var(--color-msg-recipient);
 }
 
 .msgRecipient .messageQuickAction {

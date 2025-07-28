@@ -31,8 +31,7 @@
   left: 0px;
 }
 .messageText {
-  background-color: gainsboro;
-  margin: 0 14px;
+  margin-inline: 14px;
   display: inline-block;
 }
 .historyMessage > sub {
@@ -45,13 +44,14 @@
   box-sizing: content-box;
   align-self: flex-end;
   margin-left: 42px;
-  background-color: #444;
+  background-color: var(--bg-msg-sender);
+  color: var(--color-msg-sender);
 }
 .msgRecipient {
   align-self: flex-start;
   margin-right: 42px;
-  background-color: var(--recipient-message);
-  color: var(--black);
+  background-color: var(--bg-msg-recipient);
+  color: var(--color-msg-recipient);
 }
 .msgRecipient .messageQuickAction {
   background-color: var(--recipient-quick-action);
