@@ -3,7 +3,6 @@
   min-width: 500px;
   display: flex;
   flex-flow: column;
-  width: 100%;
   margin: 7px;
   padding: 7px;
   overflow-y: auto;
@@ -12,8 +11,7 @@
   position: relative;
   width: fit-content;
   margin: 28px 7px;
-  padding-inline: 7px;
-  padding-block: 14px;
+  padding: 7px 7px 14px;
   clip-path: inset(0);
 }
 .messageQuickAction {
@@ -33,6 +31,7 @@
 .messageText {
   margin-inline: 14px;
   display: inline-block;
+  white-space: pre-wrap;
 }
 .historyMessage > sub {
   position: absolute;

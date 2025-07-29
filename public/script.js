@@ -40,6 +40,20 @@ function clearInput(input){
   input.focus()
 }
 
+function clearChatHistory(){
+  const chat = document.getElementById('chatHistory');
+  while (chat.firstChild) {
+    chat.removeChild(chat.firstChild);
+  }
+}
+
+function resizeInput(input=msgInput) {
+  requestAnimationFrame(() => {
+    input.style.height = 'auto'; // Reset height to auto to shrink if needed
+    input.style.height = `${input.scrollHeight}px`;
+  });
+}
+
 const xat = 1
 selectChat(xat)
 function selectChat(chatId){
@@ -104,12 +118,20 @@ btnLogin.addEventListener('click',login)
 btnAddAttachment.addEventListener('click',()=>toggleAttachmentMenu())
 btnSendMessage.addEventListener('click',()=>sendMessage())
 msgInput.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter' && !isEmpty()) {
-    //if() considera shift+enter para nova linha?
-    e.preventDefault()
-    sendMessage()
+  resizeInput();
+  if (e.key === 'Escape'){
+    clearInput(msgInput);
+  } 
+  else if (e.key === 'Enter' && e.shiftKey) {
+    e.preventDefault();
+    msgInput.value += '\n';
+    resizeInput();
   }
-});
+  else  if (e.key === 'Enter') {
+    e.preventDefault();
+     !isEmpty() && sendMessage()
+  }
+}); 
 
 //TESTING:
 const chatsList = document.querySelector('.chatsList');
