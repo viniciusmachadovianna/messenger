@@ -28,6 +28,7 @@ function sendMessage(){
   if(isEmpty()) return
   createMessage(msgInput.value,1)
   clearInput(msgInput)
+  scrollToBottom();
 }
 
 function isEmpty(input=msgInput){
@@ -112,6 +113,11 @@ function createMessageJSON(text,time){
   .then(data => {
     console.log(data);
   });
+}
+
+function scrollToBottom() {
+  const chat = document.getElementById('chatHistory');
+  chat.scrollTop = chat.scrollHeight;
 }
 btnTheme.addEventListener('click',toggleTheme)
 btnLogin.addEventListener('click',login)
